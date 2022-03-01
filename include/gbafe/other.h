@@ -76,8 +76,8 @@ void LoadDialogueBoxGfx(void* vramAddr, int palId); //!< FE8U:08089805
 
 int GetBattleMapType(void); //! FE8U = 0x80BD069
 
-// int div(int, int); // FE8U = (0x080D1AD4+1)
-// int mod(int, int); // FE8U = (0x080D1B4C+1)
+int __divsi3(int dividend, int divisor); // FE8U = (0x080D1AD4+1)
+int __modsi3(int dividend, int divisor); // FE8U = (0x080D1B4C+1)
 
 int GetPartyGoldAmount(void);
 void SetPartyGoldAmount(int amt);

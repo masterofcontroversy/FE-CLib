@@ -3,6 +3,7 @@
 
 #include "common.h"
 
+typedef struct ROMChapterData ROMChapterData;
 typedef struct ChapterState ChapterState;
 
 struct ROMChapterData {
@@ -39,7 +40,8 @@ struct ROMChapterData {
 	/* 2C */ u8 mapCrackedWallHeath;
 
 	/* 2D */ u8 _unk2D[0x70 - 0x2D];
-	/* 70 */ u32 unk70;
+	/* 70 */ u16 titleID;
+	/* 72 */ u16 titleID2;
 
 	/* 74 */ u8 mapEventDataId;
 	/* 75 */ u8 gmapEventId;
@@ -136,5 +138,7 @@ struct ChapterState {
 };
 
 extern struct ChapterState gChapterData; //! FE8U = (0x202BCF0)
+
+ROMChapterData* GetChapterDefinition(int index);
 
 #endif // GBAFE_CHAPTERDATA_H

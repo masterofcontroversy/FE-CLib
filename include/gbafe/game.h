@@ -37,6 +37,8 @@ extern struct BattleMapState gGameState;
 int  GetGameClock(void); //! FE8U = 0x8000D29
 void SetGameClock(int); //! FE8U = 0x8000D35
 
+void FormatTime(int time, u16* hours, u16* minutes, u16* seconds); //! FE8U = 0x8000D65
+
 int LockGameLogic(void); //! FE8U = (0x08015360+1)
 int UnlockGameLogic(void); //! FE8U = (0x08015370+1)
 int GetGameLogicLock(void); //! FE8U = (0x08015380+1)

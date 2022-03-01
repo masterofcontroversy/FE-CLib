@@ -78,6 +78,11 @@ struct CharacterData {
 	/* 30 */ void* pUnk30;
 };
 
+struct CharacterMagicData {
+	/* 00 */ s8 baseMag;
+	/* 01 */ s8 growthMag;
+};
+
 struct ClassData {
 	/* 00 */ u16 nameTextId;
 	/* 02 */ u16 descTextId;
@@ -136,6 +141,13 @@ struct ClassData {
 	/* 50 */ const void* pUnk50;
 };
 
+struct ClassMagicData {
+	/* 00 */ s8 baseMag;
+	/* 01 */ s8 growthMag;
+	/* 02 */ s8 maxMag;
+	/* 03 */ u8 promotionMag; 
+};
+
 struct Unit {
 	/* 00 */ const struct CharacterData* pCharacterData;
 	/* 04 */ const struct ClassData* pClassData;
@@ -144,7 +156,7 @@ struct Unit {
 	/* 09 */ u8 exp;
 	/* 0A */ u8 aiFlag;
 
-	/* 0B */ s8 index;
+	/* 0B */ u8 index;
 
 	/* 0C */ u32 state;
 
@@ -177,8 +189,8 @@ struct Unit {
 	/* 32 */ u8 supports[6];
 	/* 38 */ u8 unitLeader;
 	/* 39 */ u8 supportBits;
-	/* 3A */ u8 unk3A;
-	/* 3B */ u8 unk3B;
+	/* 3A */ s8 mag;
+	/* 3B */ u8 fatigue;
 
 	/* 3C */ struct SMSHandle* pMapSpriteHandle;
 
@@ -374,6 +386,9 @@ enum {
 
 extern const struct CharacterData gCharacterData[];
 extern const struct ClassData gClassData[];
+
+extern const struct ClassMagicData MagClassTable[];
+extern const struct CharacterMagicData MagCharTable[];
 
 extern struct Unit gUnitArrayBlue[]; //! FE8U = 0x202BE4C
 extern struct Unit* gActiveUnit; //! FE8U = 0x3004E50
